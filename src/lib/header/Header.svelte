@@ -1,33 +1,25 @@
 <script>
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
+<nav>
+	<div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content ">
+		<div class="flex-1 px-2 mx-2">
+			<ul>
+				<li class:active={$page.path === '/'}>
+					<a class="btn" sveltekit:prefetch href="/">Home</a>
+				</li>
+				<li class:active={$page.path === '/about'}>
+					<a class="btn" sveltekit:prefetch href="/about">About</a>
+				</li>
+				<li class:active={$page.path === '/todos'}>
+					<a class="btn" sveltekit:prefetch href="/todos">Todos</a>
+				</li>
+			</ul>
+		</div>
 	</div>
-
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
-	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
-</header>
+</nav>
 
 <style>
 	header {
@@ -98,20 +90,6 @@
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
 		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
 	}
 
 	a:hover {
